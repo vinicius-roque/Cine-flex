@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './style.css';
 
-export default function Forms({footerStatus, setFooterStatus, selected, setSelected}) {
+export default function Forms({bottomStts, setBottomStts, selected, setSelected}) {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
     const navigate = useNavigate();
 
-    function handleForm(event) {
+    function holdForm(event) {
         event.preventDefault();
         selected.name = name;
         selected.cpf = cpf;
@@ -21,13 +21,13 @@ export default function Forms({footerStatus, setFooterStatus, selected, setSelec
         const request = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', requestAnswer);
         request.then(() => {
             navigate("/sucesso");
-            setFooterStatus({...footerStatus, show: false});
+            setBottomStts({...bottomStts, show: false});
         });
         request.catch(() => alert("Não deu certo, volte daqui a pouco"));
     }
 
     return (
-        <form onSubmit={handleForm}>
+        <form className="info" onSubmit={holdForm}>
             <h5>Nome do comprador:</h5>
             <input 
                 type="text" 

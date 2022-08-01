@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
-export default function Sessions({footerStatus, setFooterStatus}) {
+export default function Sessions({bottomStts, setBottomStts}) {
     const [sessions, setSessions] = useState([]);
     const { idFilme } = useParams();
 
@@ -13,14 +13,14 @@ export default function Sessions({footerStatus, setFooterStatus}) {
 
         request.then(answer => {
             setSessions(answer.data);
-            setFooterStatus({...footerStatus, show: true});
+            setBottomStts({...bottomStts, show: true});
         })
     }, []);
 
     if(sessions.length === 0) {
         return (
-            <div className='center'>
-                Carregando...
+            <div className='loading'>
+                Loading...
             </div>
         );
     }
@@ -28,10 +28,10 @@ export default function Sessions({footerStatus, setFooterStatus}) {
     function ShowTime({name, sessionId, weekday, date}) {
         return (
             <Link to={`/assentos/${sessionId}`} style={{textDecoration: "none"}}>
-                <div className='button-showtime' onClick={() => {
-                    footerStatus.time = name;
-                    footerStatus.weekday = weekday;
-                    footerStatus.date = date;
+                <div className='buttonSessionTime' onClick={() => {
+                    bottomStts.time = name;
+                    bottomStts.weekday = weekday;
+                    bottomStts.date = date;
                 }}>{name}</div>
             </Link>
         );
@@ -39,9 +39,9 @@ export default function Sessions({footerStatus, setFooterStatus}) {
 
     function Days({showtimes, weekday, date}) {
         return (
-            <div>
+            <div className='day'>
                 <h2>{`${weekday} - ${date}`}</h2>
-                <div className='buttons-showtime'>
+                <div className='buttonsSessionTime'>
                     {showtimes.map((showtime => <ShowTime
                         key={showtime.id}
                         sessionId={showtime.id}

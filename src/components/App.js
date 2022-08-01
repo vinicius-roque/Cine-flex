@@ -11,27 +11,27 @@ import Success from './Content/Success';
 import Footer from './Footer';
 
 export default function App() {
-    const [footerStatus, setFooterStatus] = useState({show: false, title: "", posterURL: "", weekday: "", date: "", time: ""});
+    const [bottomStts, setBottomStts] = useState({show: false, title: "", posterURL: "", weekday: "", date: "", time: ""});
     const [selected, setSelected] = useState({ids: [], seats: [], name: "", cpf: ""});
 
     return(
         <Container>
             <BrowserRouter>
-                <Top setFooterStatus={setFooterStatus}/>
+                <Top setBottomStts={setBottomStts}/>
                 <Routes>
-                    <Route path="/" element={<Movies footerStatus={footerStatus}/>} />
-                    <Route path="/sessoes/:idFilme" element={<Sessions footerStatus={footerStatus} setFooterStatus={setFooterStatus}/>} />
-                    <Route path="/assentos/:idSessao" element={<Seats footerStatus={footerStatus} setFooterStatus={setFooterStatus} selected={selected} setSelected={setSelected} />} />
-                    <Route path="/sucesso" element={<Success footerStatus={footerStatus} setFooterStatus={setFooterStatus} selected={selected} />} />
+                    <Route path="/" element={<Movies bottomStts={bottomStts}/>} />
+                    <Route path="/sessoes/:idFilme" element={<Sessions bottomStts={bottomStts} setBottomStts={setBottomStts}/>} />
+                    <Route path="/assentos/:idSessao" element={<Seats bottomStts={bottomStts} setBottomStts={setBottomStts} selected={selected} setSelected={setSelected} />} />
+                    <Route path="/sucesso" element={<Success bottomStts={bottomStts} setBottomStts={setBottomStts} selected={selected} />} />
                 </Routes>
-                <Footer footerStatus={footerStatus}/>
+                <Footer bottomStts={bottomStts}/>
             </BrowserRouter>
         </Container>
     );
 }
 
 const Container = styled.div`
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     width: 100%;
     min-width: 307px;
     height: 100%;

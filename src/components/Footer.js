@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export default function Footer({footerStatus}) {
-    let {show, title, posterURL, weekday, time} = footerStatus
+export default function Footer({bottomStts}) {
+    let {show, title, posterURL, weekday, time} = bottomStts;
 
     if(show === true) {
         return (
@@ -11,11 +11,7 @@ export default function Footer({footerStatus}) {
                 </Poster>
                 <TextInfo>
                     <h3>{title}</h3>
-                    
-                    {weekday !== ''?
-                    <h3>{`${weekday} - ${time}`}</h3> :
-                    <></>
-                    }
+                    {weekday !== '' ? <h3>{`${weekday} - ${time}`}</h3> : <></>}
                 </TextInfo>
             </Container>
         );
@@ -30,7 +26,7 @@ const Container = styled.div`
     background-color: #DFE6ED;
     width: 100%;
     height: 117px;
-    border: 1px solid #9eadba;
+    border-top: 1px solid #9eadba;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -58,6 +54,7 @@ const Poster = styled.div`
     }
 `
 const TextInfo = styled.div`
+    font-family: 'Roboto', sans-serif;
     margin-left: 15px;
     font-weight: 400;
     font-size: 26px;

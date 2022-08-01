@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./style.css";
 
-export default function Movies({footerStatus}) {
+export default function Movies({bottomStts}) {
 
     const [movies, setMovies] = useState([]);
 
@@ -19,18 +19,12 @@ export default function Movies({footerStatus}) {
         return (
             <Link to={`/sessoes/${movieId}`}>
                 <div className='movie' onClick={() => {
-                    footerStatus.posterURL = posterURL;
-                    footerStatus.title = title;
+                    bottomStts.posterURL = posterURL;
+                    bottomStts.title = title;
                 }}>
                     <img src={posterURL} alt={title} />
                 </div>
             </Link>
-        );
-    }
-
-    if(movies.length === 0) {
-        return(
-            <div className='center'>Carregando...</div>
         );
     }
 

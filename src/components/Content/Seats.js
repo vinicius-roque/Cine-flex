@@ -4,42 +4,44 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 
-export default function Seats({setFooterStatus, footerStatus, selected, setSelected}) {
+export default function Seats({setBottomStts, bottomStts, selected, setSelected}) {
 
     const { idSessao } = useParams();
 
     const[seats, setSeats] = useState([]);
 
-    const legend = [{class:'selected', title:'Selecionado'}, {class:'available', title:'Disponível'}, {class:'notAvailable', title:'Indisponível'}];
+    const subtitle = [{class:'selected', title:'Selecionado'}, {class:'available', title:'Disponível'}, {class:'notAvailable', title:'Indisponível'}];
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
+        const request = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
 
-        promise.then(obj => {
-            setFooterStatus({...footerStatus});
-            setSeats(obj.data);
+        request.then(answer => {
+            setBottomStts({...bottomStts});
+            setSeats(answer.data);
         })
     }, []);
 
-    if (seats.length === 0){
-        return(<div className="center">Carregando...</div>)
-    };
+    if(seats.length === 0) {
+        return(
+            <div className='loading'>Loading...</div>
+        );
+    }
 
     function Seat({ isAvailable, name, id }) {
 
         switch (isAvailable) {
             case true:
-                return (<div className="available" onClick={() => selSeat(name, id, true)}>{name}</div>);
+                return (<div className="available" onClick={() => selectSeat(name, id, true)}>{name}</div>);
             case false:
-                return (<div className="notAvailable" onClick={() => alert('Esse assento não está disponível!')}>{name}</div>);
+                return (<div className="notAvailable" onClick={() => alert('Esse assento está indisponível!')}>{name}</div>);
             case 'selected':
-                return (<div className="selected" onClick={() => selSeat(name, id, 'selected')}>{name}</div>);
+                return (<div className="selected" onClick={() => selectSeat(name, id, 'selected')}>{name}</div>);
             default:
                 return(<>Erro!</>);
         }
     }
 
-    function selSeat(name, id, status){
+    function selectSeat(name, id, status){
  
         const indexArr = Number(name) - 1;
 
@@ -68,15 +70,15 @@ export default function Seats({setFooterStatus, footerStatus, selected, setSelec
         <div className="seats">
             <h1>Selecione o(s) assento(s)</h1>
 
-            <div className="seats-map">
+            <div className="seatsMap">
                 
                 {seats.seats.map(seat => <Seat key={seat.id} id={seat.id} name={seat.name} isAvailable={seat.isAvailable}/>)}
 
             </div>
 
-            <div className="seats-legend">
+            <div className="seatsSubtitle">
 
-                {legend.map((value, index) => 
+                {subtitle.map((value, index) => 
                     <div key={index}>
                         <div className={value.class}></div>
                         <h6>{value.title}</h6>
@@ -85,7 +87,7 @@ export default function Seats({setFooterStatus, footerStatus, selected, setSelec
 
             </div>
 
-            <Forms selected={selected} setSelected={setSelected} footerStatus={footerStatus} setFooterStatus={setFooterStatus}/>
+            <Forms selected={selected} setSelected={setSelected} bottomStts={bottomStts} setBottomStts={setBottomStts}/>
             
         </div>
     )

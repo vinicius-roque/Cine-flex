@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Top({setFooterStatus}) {
+export default function Top({setBottomStts}) {
     return (
         <Container>
             <Link to="/" style={{textDecoration:"none"}}>
-                <h1 onClick={() => setFooterStatus({show: false, title: "", weekday: "", posterURL: "", time: "", date: ""})}>
+                <h1 onClick={() => setBottomStts({show: false, title: "", weekday: "", posterURL: "", time: "", date: ""})}>
                     CINEFLEX
                 </h1>
             </Link>

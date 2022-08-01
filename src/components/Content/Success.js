@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Success({footerStatus, setFooterStatus, selected}) {
+export default function Success({bottomStts, setBottomStts, selected}) {
     return (
         <Container>
             <h1>Pedido feito com sucesso!</h1>
 
             <div>
                 <h2>Filme e sessão</h2>
-                <h3>{footerStatus.title}</h3>
-                <h3>{`${footerStatus.date} ${footerStatus.time}`}</h3>
+                <h3>{bottomStts.title}</h3>
+                <h3>{`${bottomStts.date} ${bottomStts.time}`}</h3>
             </div>
             <div>
                 <h2>Ingressos</h2>
@@ -21,7 +21,7 @@ export default function Success({footerStatus, setFooterStatus, selected}) {
                 <h3>CPF: {selected.cpf}</h3>
             </div>
             <Link to="/" style={{textDecoration: "none"}}>
-                <button onClick={() => setFooterStatus({show: false, title: "", posterURL: "", weekday: "", date: "", time: ""})}>
+                <button onClick={() => setBottomStts({show: false, title: "", posterURL: "", weekday: "", date: "", time: ""})}>
                     Voltar pra Home
                 </button>
             </Link>
@@ -30,7 +30,10 @@ export default function Success({footerStatus, setFooterStatus, selected}) {
 }
 
 const Container = styled.div`
-    h1 {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+    h1 {    
+        font-family: 'Roboto', sans-serif;
         color: #247A6B;
         width: 100%;
         height: 110px;
@@ -42,7 +45,8 @@ const Container = styled.div`
     }
 
     h2 {
-        color: #293485;
+        font-family: 'Roboto', sans-serif;
+        color: #293845;
         font-size: 24px;
         font-weight: 700;
         line-height: 28px;
@@ -50,13 +54,15 @@ const Container = styled.div`
     }
 
     h3 {
-        color: #293485;
+        font-family: 'Roboto', sans-serif;
+        color: #293845;
         font-size: 20px;
         font-weight: 400;
         line-height: 28px;
     }
 
     button {
+        font-family: 'Roboto', sans-serif;
         background-color: #E8833A;
         color: #FFFFFF;
         width: 80%;
