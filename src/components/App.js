@@ -12,6 +12,7 @@ import Footer from './Footer';
 
 export default function App() {
     const [footerStatus, setFooterStatus] = useState({show: false, title: "", posterURL: "", weekday: "", date: "", time: ""});
+    const [selected, setSelected] = useState({ids: [], seats: [], name: "", cpf: ""});
 
     return(
         <Container>
@@ -20,8 +21,8 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Movies footerStatus={footerStatus}/>} />
                     <Route path="/sessoes/:idFilme" element={<Sessions footerStatus={footerStatus} setFooterStatus={setFooterStatus}/>} />
-                    <Route path="/assentos/:idSessao" element={<Seats footerStatus={footerStatus} setFooterStatus={setFooterStatus}/>} />
-                    <Route path="/sucesso" element={<Success setFooterStatus={setFooterStatus}/>} />
+                    <Route path="/assentos/:idSessao" element={<Seats footerStatus={footerStatus} setFooterStatus={setFooterStatus} selected={selected} setSelected={setSelected} />} />
+                    <Route path="/sucesso" element={<Success footerStatus={footerStatus} setFooterStatus={setFooterStatus} selected={selected} />} />
                 </Routes>
                 <Footer footerStatus={footerStatus}/>
             </BrowserRouter>

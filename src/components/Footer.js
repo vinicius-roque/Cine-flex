@@ -11,7 +11,11 @@ export default function Footer({footerStatus}) {
                 </Poster>
                 <TextInfo>
                     <h3>{title}</h3>
-                    {weekday !== "" ? <h3>{`${weekday} - ${time}`}</h3> : <></>}
+                    
+                    {weekday !== ''?
+                    <h3>{`${weekday} - ${time}`}</h3> :
+                    <></>
+                    }
                 </TextInfo>
             </Container>
         );
@@ -23,7 +27,7 @@ export default function Footer({footerStatus}) {
 }
 
 const Container = styled.div`
-    background-color: #dfe6ed;
+    background-color: #DFE6ED;
     width: 100%;
     height: 117px;
     border: 1px solid #9eadba;
@@ -53,11 +57,10 @@ const Poster = styled.div`
         margin: auto;
     }
 `
-
-const TextInfo: styled.div`
-    color: #293845;
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 30px;
+const TextInfo = styled.div`
     margin-left: 15px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    color: #293845;
 `

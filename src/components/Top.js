@@ -5,7 +5,9 @@ export default function Top({setFooterStatus}) {
     return (
         <Container>
             <Link to="/" style={{textDecoration:"none"}}>
-                <h1 onClick={() => setFooterStatus({show: false, title: "", weekday: "", posterURL: "", time: "", date: ""})}>CINEFLEX</h1>
+                <h1 onClick={() => setFooterStatus({show: false, title: "", weekday: "", posterURL: "", time: "", date: ""})}>
+                    CINEFLEX
+                </h1>
             </Link>
         </Container>
     );

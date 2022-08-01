@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export default function Sessions({footerStatus, setFooterStatus}) {
     const [sessions, setSessions] = useState([]);
-    const {idFilme} = useParams();
+    const { idFilme } = useParams();
 
     useEffect(() => {
         const request = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
@@ -27,7 +27,7 @@ export default function Sessions({footerStatus, setFooterStatus}) {
 
     function ShowTime({name, sessionId, weekday, date}) {
         return (
-            <Link>
+            <Link to={`/assentos/${sessionId}`} style={{textDecoration: "none"}}>
                 <div className='button-showtime' onClick={() => {
                     footerStatus.time = name;
                     footerStatus.weekday = weekday;

@@ -38,7 +38,7 @@ export default function Movies({footerStatus}) {
         <div className='movies'>
             <h1>Selecione o filme</h1>
             <div>
-                {movies.map(movie => <Movie key={movie.id} movieId={movie.id} title={movie.title} posterURL={movie.posterURL} />)};
+                {movies.map(movie => <Movie key={movie.id} movieId={movie.id} title={movie.title} posterURL={movie.posterURL} />)}
             </div>
         </div>
     );
