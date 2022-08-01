@@ -1,0 +1,230 @@
+@media (max-width: 614px) {
+    .center {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        height: 110px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        color: #293845;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .movies {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .movies div {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .movie {
+        width: 145px;
+        height: 209px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .movie:hover {
+        background-color: #c9c9c9;
+        opacity: 60%;
+    }
+
+    .movie:active {
+        transform: translateY(2px);
+    }
+
+    .movie img {
+        width: 129px;
+        height: 193px;
+        margin: auto;
+    }
+
+
+
+    .sessions h2{
+        width: 100%;
+        font-size: 20px;
+        line-height: 23px;
+        color: #293845;
+    }
+
+    .sessions {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .buttons-showtime {
+        margin: 30px 0;
+        display: flex;
+    }
+
+    .button-showtime {
+        width: 83px;
+        height: 43px;
+        margin-right: 10px;
+        background: #E8833A;
+        border: none;
+        border-radius: 3px;
+        font-size: 18px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .button-showtime:hover {
+        background-color: #b3632a;
+    }
+
+    .button-showtime:active {
+        transform: translateY(2px);
+    }
+
+    .seats {
+        width: 100%;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seats-map {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(10, auto);
+    }
+
+    .available, .notAvailable, .selected{
+        width: 26px;
+        height: 26px;
+        margin-top: 18px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        line-height: 13px;
+        color: #000000;
+    }
+
+    .available {
+        background: #C3CFD9;
+        border-color: #7B8B99;
+        cursor: pointer;
+    }
+
+    .available:hover{
+        background: #97a0a8;
+    }
+
+    .notAvailable {
+        background: #FBE192;
+        border: #F7C52B;
+    }
+
+    .selected {
+        background: #8DD7CF;
+        border-color: #1AAE9E;
+        cursor: pointer;
+    }
+
+    .selected:hover{
+        background: #67a19c;
+    }
+
+    .available:active, .selected:active {
+        transform: translateY(2px);
+    }
+
+    .seats-legend{
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .seats-legend div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: auto;
+        pointer-events: none;
+    }
+
+    .seats-legend h6 {
+        margin-top: 7px;
+        font-size: 13px;
+        line-height: 15px;
+        color: #4E5A65;
+    }
+
+    .seats form {
+        height: 300px;
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .seats form h5{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: #293845;
+    }
+
+    .seats form input {
+        margin: 5px 0 10px 0;
+        width: 100%;
+        height : 50px;
+        background: #FFFFFF;
+        border: 1px solid #D5D5D5;
+        border-radius: 3px;
+    }
+
+    .seats form button {
+        width: 60%;
+        height: 43px;
+        margin-right: 10px;
+        background: #E8833A;
+        border: none;
+        border-radius: 3px;
+        font-size: 18px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 20px auto;
+    }
+
+    .seats form button:hover {
+        background-color: #b3632a;
+    }
+
+    .seats form button:active {
+        transform: translateY(2px);
+    }
+}
